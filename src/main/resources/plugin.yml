@@ -1,0 +1,19 @@
+# Плагин разработан командой кодеров UniversalStudio.
+# Если Вы обнаружите какой-либо баг, незамедлительно сообщите нам.
+# Vk: vk.com/universalstudio
+# Site: u-studio.su
+
+name: UniversalJoiner
+version: 1.0
+
+website: u-studio.su
+
+author: UniversalStudio Inc
+depend: [Vault]
+
+main: ru.universalstudio.universaljoiner.JoinerPlugin
+
+commands:
+    joiner:
+        aliases: [universaljoiner,ujoiner]
+        

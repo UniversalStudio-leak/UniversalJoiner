@@ -1,0 +1,1387 @@
+# Плагин разработан командой кодеров UniversalStudio.
+# Если Вы обнаружите какой-либо баг, незамедлительно сообщите нам.
+# Vk: vk.com/universalstudio
+# Site: u-studio.su
+# Права:
+# ujoiner.joiner - Доступ к команде /joiner
+
+KEY: ''
+
+mysql:
+    enable: false
+    host: 'jdbc:mysql://localhost:3306/ujoiner'
+    user: root
+    password: ''
+
+joiners:
+    join1:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 1'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 1'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 1'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fзашёл на сервер'
+        permission: 'ujoiner.join1'
+        permission-free: 'ujoiner.free.join1'
+        money: 100
+    join2:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 2'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 2'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 2'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&fЦена: &e%money% &fзолота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fзашёл на сервер и получил помидор в лицо'
+        permission: 'ujoiner.join2'
+        permission-free: 'ujoiner.free.join2'
+        money: 1000
+    join3:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 3'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 3'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 3'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fзашёл на сервер и начал танцевать'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join4:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 4'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 4'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 4'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fпокушал и зашёл на сервер!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join5:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 5'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 5'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 5'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fшалом друзья , я снова с вами!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join6:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 6'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 6'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 6'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fпришел ради Бузовой'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join6'
+        money: 1000
+    join7:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 7'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 7'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 7'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fначинает чиллить в лобби. Присоединяйся!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join7'
+        money: 1000
+    join8:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 8'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 8'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 8'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fзашёл проведать крестьян'
+        permission: 'ujoiner.join8'
+        permission-free: 'ujoiner.free.join8'
+        money: 1000
+    join9:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 9'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 9'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 9'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fКто-нибудь звал?'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join10:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 10'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 10'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 10'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fЕго боялись даже чеченцы..'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join11:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 11'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 11'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 11'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fЗашёл флексить как Рикардо Милос!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join12:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 11'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 12'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 12'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fПришёл делать домашку'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join13:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 13'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Доступно: &2&lULTRA'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 13'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Доступно: &2&lULTRA'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 13'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Доступно: &2&lULTRA'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fприбыл кошмарить всех и вся.'
+        permission: 'ujoiner.join66'
+        permission-free: 'ujoiner.free.join66'
+        money: 1000
+    join14:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 14'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Доступно: &2&lULTRA'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 14'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Доступно: &2&lULTRA'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 14'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&7Доступно: &2&lULTRA'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fпопытался вернуть 2007, не получилось.'
+        permission: 'ujoiner.join33'
+        permission-free: 'ujoiner.free.join33'
+        money: 1000
+    join16:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 16'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Доступно: &2&lULTRA'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 16'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 16'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fрешил на раслобоне заварить дошик и прийти к нам.'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join17:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 17'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 17'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 17'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fбыл признан годным к службе на сервере'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join18:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 18'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 18'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 18'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fсбежал с урока! И присоединился к нам.'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join19:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 19'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 19'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 19'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fпрiшёл iз украiнi!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join20:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 20'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 20'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 20'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fПрисоединился на проект UniversalStudio!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join21:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 21'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 21'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 21'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fОдной ногой тут, вторую оставил во Вьетнаме'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join22:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 22'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 22'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 22'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fПришел опасный тип!. Прячемся все!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+    join23:
+        available:
+            item:
+                type: paper
+                title: '&cСообщение 23'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '%selected%'
+            # Звуки брать от сюда: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+            sound-selected: BLOCK_BEACON_POWER_SELECT # Звук при нажатии если выбрали джоинер
+            sound-already-selected: ENTITY_VILLAGER_NO # Звук при нажатии если уже выбран джоинер
+            selected: '&aВы уже выбрали данное сообщение.'
+            no-selected: '&eЛКМ, чтобы выбрать данное сообщение.'
+        available-buy:
+            item:
+                type: stained_glass_pane
+                data: 14
+                title: '&cСообщение 23'
+                flags:
+                    - 'hide_enchants'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+            sound-money-notenough: ENTITY_VILLAGER_TRADE # Звук при нажатии если недостаточно монет
+            sound-buy: BLOCK_BARREL_OPEN # Звук если купил джоинер
+        not-available:
+            item:
+                type: stained_glass_pane
+                data: 14
+                flags:
+                    - 'hide_enchants'
+                title: '&cСообщение 23'
+                lore:
+                    - '&7Установить кастомное сообщение'
+                    - '&7для всех игроков о вашем входе на сервер'
+                    - ''
+                    - '&7Оповещение для игроков:'
+                    - '%joinMessage%'
+                    - ''
+                    - '&7Цена: &e%money% &7золота'
+                    - ''
+                    - '&cДанное сообщение вам не доступно.'
+            sound: ENTITY_VILLAGER_NO # Звук при нажатии
+        join-message: '&8▸ &c%prefix%%player%%suffix% &fон уже тут похлопайте!'
+        permission: 'ujoiner.join3'
+        permission-free: 'ujoiner.free.join3'
+        money: 1000
+gui:
+    title: '&0Сообщение при входе'
+    size: 5;9
+    pagination:
+        start-row: 1
+        start-column: 1
+        perpage: 21
+        #window: # бордеры в гуй меню (стенки)
+        #type: stained_glass_pane
+        #data: 7
+    items:
+        back:
+            item:
+                type: skull_item
+                data: 3 # Обязательно устанавливайте сюда 3, если хотите чтобы была текстура
+                # Текстуры берём от сюда: https://minecraft-heads.com/custom-heads
+                texture: '6b29eceef3ddb14f906dbd4fa41d63f3d7d4537871cee4315c59e76ebc5f85' # Сама текстура
+                title: '&cЗакрыть меню'
+            type: back
+            position-x: 4
+            position-y: 4
+        next:
+            item:
+                type: skull_item
+                data: 3
+                texture: '141ff6bc67a481232d2e669e43c4f087f9d2306665b4f829fb86892d13b70ca'
+                title: '&aСледующая страница'
+            type: next
+            position-x: 7
+            position-y: 4
+        prev:
+            item:
+                type: skull_item
+                data: 3
+                texture: '49b2bee39b6ef47e182d6f1dca9dea842fcd68bda9bacc6a6d66a8dcdf3ec'
+                title: '&cПредыдущая страница'
+            type: previous
+              #air-replace: # если предыдующей страницы не будет, то вместо стрелы будет этот предмет
+              #type: stained_glass_pane
+            #data: 7
+            position-x: 1
+            position-y: 4
+messages:
+    prefix: '&6UniversalJoiner &8| &7'
+    no-permission: 'У вас нет прав.'
+    not-available: 'Вы не можете купить данный джоинер. Он доступен только с доната &2&lULTRA &7и выше.'
+    selected-already: 'Вы уже установили данный джоинер.'
+    only-players: 'Команда только для игроков.'
+    money-notenough: 'Недостаточно монет;title: &6UniversalJoiner %nl% &fНедостаточно монет.'
+    joiner-buy: 'Джоинер успешно куплен;title: &6UniversalJoiner %nl% Вы успешно приобрели джоинер;actionbar: &6UniversalJoiner &8▸ &f%joinMessage%'
+    player-null: 'Игрок не найден'
+    joiner-null: 'Джоинер не найден.'
+    give:
+        usage: '&c/joiner give <игрок> <джоинер> &f- Выдать джоинер'
+        gived: 'Джоинер успешно выдан, игроку &c%player%'
+    remove:
+        usage: '&c/joiner remove <игрок> <джоинер> &f- Удалить джоинер игроку'
+        joiner-notfound: 'Джоинер у данного игрока не найден.'
+        removed: 'Джоинер удалён у игрока &c%player%'
